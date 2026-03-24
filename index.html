@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Diversa Investimentos | Links</title>
     
     <script type="text/javascript">
@@ -23,7 +23,6 @@
 
     <style>
         :root {
-            --primary-color: #ffffff;
             --accent-color: #00e6ff;
             --text-color: #ffffff;
             --button-bg: rgba(255, 255, 255, 0.08);
@@ -32,7 +31,25 @@
             --bg-overlay: rgba(0, 0, 0, 0.65);
         }
 
-        /* Animações de Entrada */
+        /* CORREÇÃO DO FUNDO NO MOBILE:
+           Fixamos o fundo em um pseudo-elemento para evitar o balanço do scroll */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                              url('https://i.ibb.co/zHS58byc/1.png');
+            background-size: cover;
+            background-position: center;
+            /* Removemos o 'fixed' do attachment e usamos 'position: fixed' no elemento */
+            transform: translateZ(0); /* Força aceleração de hardware */
+            will-change: transform;
+        }
+
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
@@ -43,7 +60,6 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Animação do Brilho (Shiny) */
         @keyframes shiny {
             0% { left: -100%; }
             20% { left: 100%; }
@@ -64,13 +80,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
-                              url('https://i.ibb.co/zHS58byc/1.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             padding: 20px;
             overflow-x: hidden;
+            background-color: #000; /* Cor de fundo caso a imagem falhe */
         }
 
         .container {
@@ -154,16 +166,14 @@
             position: relative;
             animation: fadeInUp 0.6s ease forwards;
             opacity: 0;
-            overflow: hidden; /* Necessário para o efeito shiny */
+            overflow: hidden;
         }
 
-        /* Micro-interação de Clique */
         .link-button:active {
             transform: scale(0.97) !important;
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* Efeito de Brilho EXCLUSIVO no WhatsApp (Primeiro Botão) */
         .link-button.whatsapp-btn {
             background: rgba(0, 230, 255, 0.12);
             border-color: rgba(0, 230, 255, 0.3);
@@ -181,7 +191,7 @@
             animation: shiny 4s infinite;
         }
 
-        /* Delays da Cascata */
+        /* Delays */
         .link-button:nth-child(1) { animation-delay: 0.5s; }
         .link-button:nth-child(2) { animation-delay: 0.6s; }
         .link-button:nth-child(3) { animation-delay: 0.7s; }
@@ -211,10 +221,6 @@
             backdrop-filter: none;
         }
 
-        .link-button.disabled span.material-symbols-outlined {
-            color: rgba(255, 255, 255, 0.2);
-        }
-
         footer {
             margin-top: auto;
             padding: 30px 20px;
@@ -225,9 +231,8 @@
             text-transform: uppercase;
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 440px) {
-            .logo { width: 80%; }
+            .logo { width: 85%; }
             .container { margin-top: 30px; }
             .link-button { padding: 15px; font-size: 14px; }
         }
