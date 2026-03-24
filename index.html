@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diversa Investimentos | Links</title>
+    
+<link rel="icon" type="image/png" href="https://drive.google.com/thumbnail?id=1-RNqR-RwXyWArDCzktt86tIHFNrkItVK&sz=w32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Cores baseadas na identidade visual da Diversa */
+            --primary-color: #ffffff;
+            --accent-color: #00e6ff; /* Tom azul vibrante para destaque */
+            --text-color: #ffffff;
+            --button-bg: rgba(255, 255, 255, 0.08); /* Fundo sutil para o botão */
+            --button-hover: rgba(255, 255, 255, 0.15); /* Efeito hover leve */
+            --disabled-color: rgba(150, 150, 150, 0.4);
+            --bg-overlay: rgba(0, 0, 0, 0.6); /* Camada escura para dar contraste ao texto */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            /* Imagem de Fundo do ImgBB */
+            background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                              url('https://i.ibb.co/zHS58byc/1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            /* Margem do topo para baixar o logo e o slogan */
+            margin-top: 60px; /* Reduzido levemente para compensar o tamanho da logo */
+            margin-bottom: 40px;
+        }
+
+        /* Área do Cabeçalho: Logo + Slogan */
+        .header-area {
+            margin-bottom: 50px; /* Aumentado para dar espaço entre o slogan e os ícones */
+        }
+
+        .logo {
+            /* Logo do ImgBB - Tamanho aumentado em 100% (440px) */
+            width: 440px;
+            max-width: 100%; /* Garante que não quebre em telas menores que 440px */
+            height: auto;
+            margin-bottom: 20px; /* Aumentado levemente */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .slogan {
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.5px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Redes Sociais */
+        .social-icons {
+            margin-bottom: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 26px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: var(--accent-color);
+            opacity: 1;
+        }
+
+        /* Bloco de Links */
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background: var(--button-bg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px; /* Estilo pílula moderno */
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        /* Ícones dentro dos botões (Google Icons) */
+        .link-button span.material-symbols-outlined {
+            position: absolute;
+            left: 20px;
+            font-size: 22px;
+            color: var(--accent-color); /* Ícones com a cor de destaque */
+        }
+
+        /* Hover dos botões ativos */
+        .link-button:hover:not(.disabled) {
+            background: var(--button-hover);
+            border-color: var(--accent-color);
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0, 230, 255, 0.2);
+        }
+
+        /* Botão Desativado (Academy) */
+        .link-button.disabled {
+            background: var(--disabled-color);
+            color: rgba(255, 255, 255, 0.5);
+            cursor: not-allowed;
+            border: 1px solid transparent;
+        }
+
+        .link-button.disabled span.material-symbols-outlined {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .link-button.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 12px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        /* Ajustes para telas muito pequenas (Mobile) */
+        @media (max-width: 440px) {
+            .logo { width: 90%; } /* Garante que a logo não corte em celulares pequenos */
+        }
+        @media (max-width: 375px) {
+            .container { margin-top: 40px; }
+            .slogan { font-size: 14px; }
+            .link-button { font-size: 14px; padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-area">
+            <img src="https://i.ibb.co/m5gCsFsM/Completa-Branco.png" alt="Diversa Investimentos Logo" class="logo">
+            <p class="slogan">Cuidado que vai além dos seus investimentos.</p>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/diversa_investimentos/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/diversa-investimentos/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@diversa_investimentos" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <div class="links-wrapper">
+            
+            <a href="https://api.whatsapp.com/send?phone=554433466200" class="link-button" target="_blank">
+                <span class="material-symbols-outlined">chat</span>
+                Falar no WhatsApp
+            </a>
+
+            <a href="https://diversainvestimentos.com.br/" class="link-button" target="_blank">
+                <span class="material-symbols-outlined">language</span>
+                Visitar Nosso Site
+            </a>
+
+            <a href="#" class="link-button disabled" onclick="return false;">
+                <span class="material-symbols-outlined">school</span>
+                Diversa Academy (Em breve)
+            </a>
+
+            <a href="https://calculadora-ig.diversaacademy.com.br/" class="link-button" target="_blank">
+                <span class="material-symbols-outlined">calculate</span>
+                Calculadora de Patrimônio Ideal
+            </a>
+
+            <a href="https://imposto-de-renda-guia-do-investidor.diversaacademy.com.br/" class="link-button" target="_blank">
+                <span class="material-symbols-outlined">description</span>
+                Guia de Imposto de Renda
+            </a>
+
+            <a href="https://t.me/+wLj3g4qE-Fo4OWIx" class="link-button" target="_blank">
+                <span class="material-symbols-outlined">send</span>
+                Canal do Telegram
+            </a>
+
+            <a href="https://t.me/opcoesdiversa" class="link-button" target="_blank">
+                <span class="material-symbols-outlined">trending_up</span>
+                Grupo Exclusivo de Opções
+            </a>
+
+        </div>
+    </div>
+
+    <footer>
+        © 2026 Diversa Investimentos. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
